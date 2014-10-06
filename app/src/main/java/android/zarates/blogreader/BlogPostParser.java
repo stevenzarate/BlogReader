@@ -1,4 +1,9 @@
 package android.zarates.blogreader;
+
+import org.json.JSONObject;
+
+import java.io.InputStream;
+
 public class BlogPostParser {
     private static BlogPostParser parser;
 
@@ -11,5 +16,8 @@ public class BlogPostParser {
             parser = new BlogPostParser();
         }
         return parser;
+    }
+    public JSONObject phrase(InputStream inputStream){
+        return null;
     }
 }
