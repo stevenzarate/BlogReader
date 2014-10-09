@@ -1,8 +1,11 @@
 package android.zarates.blogreader;
 
+import android.util.Log;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -19,10 +22,24 @@ public class BlogPostParser {
         }
         return parser;
     }
-    public JSONObject phrase(InputStream inputStream){
+    public JSONObject parse(InputStream inputStream){
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuilder builder = new StringBuilder();
         JSONObject jsonObject = null;
-        return null;
+
+        String line;
+
+    try {
+        while ((line = reader.readLine()) != null) {
+
+        }
+    }
+
+    catch (IOException error) {
+        Log.e("BlogPostParser", "IOException: " + error);
+    }
+
+
+        return jsonObject;
     }
 }
