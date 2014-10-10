@@ -19,7 +19,7 @@ public class BlogPostParser {
     private BlogPostParser(){
 
     }
-    private BlogPostParser get(){
+    public static BlogPostParser get(){
         if (parser == null){
             parser = new BlogPostParser();
         }
@@ -49,4 +49,7 @@ public class BlogPostParser {
 
         return jsonObject;
     }
+
+
+
 }

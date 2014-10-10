@@ -14,6 +14,8 @@ import java.net.URL;
 public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject> {
     @Override
     protected JSONObject doInBackground(Activity... activities) {
+        JSONObject jsonObject = null;
+
         try {
             URL blogFeedUrl = new URL("http://blog.teamtreehouse.com/api/get_recent_summary/?count=10");
 
@@ -23,6 +25,8 @@ public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject> {
 
             if(responseCode == HttpURLConnection.HTTP_OK){
                 Log.i("BlogPostTask", "Sucessful Connection" + responseCode);
+                jsonObject = BlogPostParser.get().parse(connection.getInputStream());
+
             }
         }
         catch (MalformedURLException error){
@@ -31,6 +35,11 @@ public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject> {
         catch (IOException error){
             Log.e("BlogPostTask", "IO Exception: " + error);
         }
-        return null;
+        return jsonObject;
+    }
+
+    @Override
+    protected void onPostExecute(JSONObject jsonObject) {
+        super.onPostExecute(jsonObject);
     }
 }
