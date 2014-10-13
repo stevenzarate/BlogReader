@@ -2,6 +2,7 @@ package android.zarates.blogreader;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -52,7 +53,13 @@ public class BlogPostParser {
     }
 
     public void readFeed(JSONObject jsonObject){
+        try {
+            JSONArray jsonPosts = jsonObject.getJSONArray("posts");
+        }
+        catch (JSONException error) {
+            Log.e("BlogPostParser", "JSONException: " + error);
 
+        }
     }
 
 }

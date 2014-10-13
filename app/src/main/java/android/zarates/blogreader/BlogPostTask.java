@@ -40,6 +40,7 @@ public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject> {
 
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
+
         super.onPostExecute(jsonObject);
     }
 }
