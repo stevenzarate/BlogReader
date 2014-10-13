@@ -22,7 +22,7 @@ public class BlogActivity extends Activity {
 
         listView.setEmptyView(progressBar);
 
-        new BlogPostTask().execute();
+        new BlogPostTask().execute(this);
     }
 
 

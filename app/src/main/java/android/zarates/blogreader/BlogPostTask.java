@@ -13,8 +13,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject> {
+    private Activity activity;
+
     @Override
     protected JSONObject doInBackground(Activity... activities) {
+        activity = activities[0];
         JSONObject jsonObject = null;
 
         try {
@@ -41,7 +44,7 @@ public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject> {
 
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayStrings);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1, arrayStrings);
         listView.setAdapter(adapter);
     }
 }
