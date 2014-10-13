@@ -8,4 +8,5 @@ public class BlogPost {
         this.title = title;
         this.url = url;
     }
+
 }
